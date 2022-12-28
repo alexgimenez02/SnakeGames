@@ -1,4 +1,4 @@
-#How to execute each of the following games:
+# How to execute each of the following games:
 
 #### Python
 
