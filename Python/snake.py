@@ -74,6 +74,7 @@ def main(stdscr):
                 # Quit the game
                 stdscr.clear()
                 stdscr.addstr('Bye!', curses.color_pair(2))
+                display_snake(stdscr)
                 stdscr.getch()
                 return
     board = [['.' for x in range(board_width)] for y in range(board_height)]
@@ -149,6 +150,7 @@ def main(stdscr):
     stdscr.nodelay(False)
     stdscr.clear()
     stdscr.addstr('Game Over!', curses.color_pair(1))
+    display_snake(stdscr) 
     stdscr.getch()
         
 def spawn_food(board, snake, board_width, board_height):
@@ -198,5 +200,24 @@ def display_menu(stdscr):
     stdscr.addstr(menu_selection, 1, ">", curses.A_REVERSE)
     stdscr.refresh()
 
-    
+def display_snake(stdscr):
+    snake_art = [
+    '        v     ',
+    '       /      ',
+    '      XX      ',
+    '    XXXXXX    ',
+    '  XXXXXXXXXX  ',
+    ' XXXXXXXXXXXX ',
+    'XXX XXXXXX XXX',
+    'XXXXXXXXXXXXXX',
+    ]
+    stdscr.addstr('\n')
+    for i in range(len(snake_art)):
+        if i < 2:
+            stdscr.addstr(snake_art[i], curses.color_pair(1))
+        else:
+            stdscr.addstr(snake_art[i], curses.color_pair(2))
+        stdscr.addstr('\n')
+    stdscr.addstr('\n')
+    stdscr.addstr('Thanks for playing!', curses.color_pair(3))
 curses.wrapper(main)
