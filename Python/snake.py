@@ -66,10 +66,10 @@ def main(stdscr):
                 break
             elif menu_selection == 3:
                 # Change the board size
-                change_board_size(stdscr)
+                board_height, board_width = change_board_size(stdscr)
             elif menu_selection == 4:
                 # Change the difficulty
-                change_difficulty(stdscr)
+                speed = change_difficulty(stdscr)
             elif menu_selection == 5:
                 # Quit the game
                 stdscr.clear()
@@ -171,8 +171,8 @@ def change_board_size(stdscr):
     stdscr.refresh()
     curses.echo()
     board_width = stdscr.getstr()
-    board_height = clamp(int(board_height),10,50)
-    board_width = clamp(int(board_width),10,50)
+    board_height = clamp(int(board_height),10,20)
+    board_width = clamp(int(board_width),10,70)
     return int(board_height), int(board_width)
 
 def change_difficulty(stdscr):

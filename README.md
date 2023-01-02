@@ -7,10 +7,6 @@
 3.  Use the `python` command to run the code:
         
     ```python snake_game.py```
-    
-4.  If the Snake game requires any command line arguments, you can pass them after the name of the script. For example:
-    
-    ```python snake_game.py --level hard```
 
 #### C/C++
 
