@@ -188,6 +188,7 @@ def display_menu(stdscr):
         curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
         curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
         curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+        curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)
         
         
     stdscr.clear()
@@ -208,7 +209,7 @@ def display_snake(stdscr):
     '    XXXXXX    ',
     '  XXXXXXXXXX  ',
     ' XXXXXXXXXXXX ',
-    'XXX XXXXXX XXX',
+    'XXXOXXXXXXOXXX',
     'XXXXXXXXXXXXXX',
     ]
     stdscr.addstr('\n')
@@ -216,7 +217,14 @@ def display_snake(stdscr):
         if i < 2:
             stdscr.addstr(snake_art[i], curses.color_pair(1))
         else:
-            stdscr.addstr(snake_art[i], curses.color_pair(2))
+            if i == 6:
+                for char in snake_art[i]:
+                    if char == 'O':
+                        stdscr.addstr(char, curses.color_pair(4))
+                    else:
+                        stdscr.addstr(char, curses.color_pair(2))
+            else: 
+                stdscr.addstr(snake_art[i], curses.color_pair(2))
         stdscr.addstr('\n')
     stdscr.addstr('\n')
     stdscr.addstr('Thanks for playing!', curses.color_pair(3))
