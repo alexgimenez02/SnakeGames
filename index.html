@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<script src="https://unpkg.com/xterm@3.8.0/lib/xterm.min.js"></script>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -10,11 +12,82 @@
 	
 	<img src="ImagesForWebsite/snake.jpg" alt="Cute snake" style="float: right; margin: 0 800px 40px 0; width: 300px; height: 300px; border: 1px solid black;">
     <ul>
-      <li><a href="#">Snake (Python)</a></li>
-      <li><a href="#">Snake (C)</a></li>
-      <li><a href="#">Snake (C++)</a></li>
-      <li><a href="#">Snake (JavaScript)</a></li>
-      <li><a href="#">Snake (Java)</a></li>
+      <li><a href="#" onclick="displayPythonGame()">Snake with Python</a></li>
+      <li><a href="#" onclick="displayCGame()">Snake with C</a></li>
+      <li><a href="#" onclick="displayCppGame()">Snake with C++</a></li>
+      <li><a href="#" onclick="displayJavascriptGame()">Snake with Javascript</a></li>
+      <li><a href="#" onclick="displayJavaGame()">Snake with Java</a></li>
     </ul>
+    <div id="python-game" style="display: none;">
+      <h2>Snake with Python</h2>
+      <!-- Add your Python snake game code here -->
+	  <a href="Python/snake_executable.zip" download>Download Snake Game</a>
+
+    </div>
+    <div id="c-game" style="display: none;">
+      <h2>Snake with C</h2>
+      <!-- Add your C snake game code here -->
+	  <form action="script_runner.php" method="POST">
+		<input type="submit" value="Run C Script">
+	  </form>
+    </div>
+    <div id="cpp-game" style="display: none;">
+      <h2>Snake with C++</h2>
+      <!-- Add your C++ snake game code here -->
+	  <form action="script_runner.php" method="POST">
+		<input type="submit" value="Run C++ Script">
+	  </form>
+    </div>
+    <div id="javascript-game" style="display: none;">
+      <h2>Snake with Javascript</h2>
+      <!-- Add your Javascript snake game code here -->
+	  <form action="script_runner.php" method="POST">
+		<input type="submit" value="Run Javascript Script">
+	  </form>
+    </div>
+    <div id="java-game" style="display: none;">
+      <h2>Snake with Java</h2>
+      <!-- Add your Java snake game code here -->
+	  <form action="script_runner.php" method="POST">
+		<input type="submit" value="Run Java Script">
+	  </form>
+    </div>
+	<script>
+		function displayPythonGame() {
+        document.getElementById('python-game').style.display = 'block';
+        document.getElementById('c-game').style.display = 'none';
+        document.getElementById('cpp-game').style.display = 'none';
+        document.getElementById('javascript-game').style.display = 'none';
+        document.getElementById('java-game').style.display = 'none';
+      }
+      function displayCGame() {
+        document.getElementById('python-game').style.display = 'none';
+        document.getElementById('c-game').style.display = 'block';
+        document.getElementById('cpp-game').style.display = 'none';
+        document.getElementById('javascript-game').style.display = 'none';
+        document.getElementById('java-game').style.display = 'none';
+      }
+      function displayCppGame() {
+        document.getElementById('python-game').style.display = 'none';
+        document.getElementById('c-game').style.display = 'none';
+        document.getElementById('cpp-game').style.display = 'block';
+        document.getElementById('javascript-game').style.display = 'none';
+        document.getElementById('java-game').style.display = 'none';
+      }
+      function displayJavascriptGame() {
+        document.getElementById('python-game').style.display = 'none';
+        document.getElementById('c-game').style.display = 'none';
+        document.getElementById('cpp-game').style.display = 'none';
+        document.getElementById('javascript-game').style.display = 'block';
+        document.getElementById('java-game').style.display = 'none';
+	  }
+	  function displayJavaGame() {
+	    document.getElementById('python-game').style.display = 'none';
+        document.getElementById('c-game').style.display = 'none';
+        document.getElementById('cpp-game').style.display = 'none';
+        document.getElementById('javascript-game').style.display = 'none';
+        document.getElementById('java-game').style.display = 'block';
+	  }
+	  </script>
   </body>
 </html>
