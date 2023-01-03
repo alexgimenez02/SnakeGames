@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+canvas, #gameOver {
+  margin: 0 auto;
+}
+#score {
+  text-align: center;
+}
+#menuForm {
+  width: 200px;
+  margin: 50px auto;
+}
+
+</style>
+<head>
+  <title>Javascript snake</title>
+</head>
+<body>
+<form id="menuForm" style="display: block; margin: 0 auto;">
+  <label>Board size:</label>
+  <select id="boardSize">
+    <option value="20">20x20</option>
+    <option value="30">30x30</option>
+    <option value="40">40x40</option>
+  </select>
+  <br>
+  <label>Snake speed:</label>
+  <select id="snakeSpeed">
+    <option value="120">Slow</option>
+    <option value="75">Medium</option>
+    <option value="50">Fast</option>
+  </select>
+  <br>
+  <input id='startButton' type="submit" value="Start">
+</form>
+<div id="score" style="display: none; font-size:40px;">
+Score: 0</div>
+<canvas id="canvas" style="display: none; margin: 0 auto; border: 1px solid black;"></canvas>
+<div id='gameOver' styel="color: red;">
+    <h1 style="color:red;font-size:40px;">Game Over!</h1>
+</div>
+<script src="./snake.js"></script>
+</body>
+</html>
+
