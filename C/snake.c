@@ -50,7 +50,7 @@ void initGame(Snake** snake, Food* food, Direction* direction){
 void drawGame(Snake* snake, Food food){
 	
 	clear();
-	mvprintw(0, 2 * (BOARD_WIDTH)/ 5, "Score: %d", score);
+	mvprintw(0, 2 * (BOARD_WIDTH)/ 5	, "Score: %d", score);
 	for(int i = 0; i < BOARD_WIDTH + 2; i++){
 		for(int j = 1; j < BOARD_HEIGHT + 2; j++){
 			if((i == 0 && j >= 1) || (i == BOARD_WIDTH + 1 && j < BOARD_HEIGHT + 2)){
