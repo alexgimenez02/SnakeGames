@@ -50,7 +50,7 @@ void initGame(Snake** snake, Food* food, Direction* direction){
 void drawGame(Snake* snake, Food food){
 	
 	clear();
-	mvprintw(0,(BOARD_WIDTH + 2) / 2, "Score: %d", score);
+	mvprintw(0, 2 * (BOARD_WIDTH)/ 5, "Score: %d", score);
 	for(int i = 0; i < BOARD_WIDTH + 2; i++){
 		for(int j = 1; j < BOARD_HEIGHT + 2; j++){
 			if((i == 0 && j >= 1) || (i == BOARD_WIDTH + 1 && j < BOARD_HEIGHT + 2)){
@@ -100,35 +100,33 @@ int saveHighScore(int sc){
 	printw("%d\n",sc);
 	attroff(COLOR_PAIR(3));
 	FILE *fptr;
-	fptr = fopen("highscore.txt","w+");
+	fptr = fopen("highscore.txt","r");
 	if(fptr == NULL){
 		printw("Error reading previous high score file");
 		fclose(fptr);
 		return 1;
 	}
-	int ret = fscanf(fptr, "%i", &highScore);
-	printw("Number of integers read: %d\n", ret);
-	if (ret == 1){		
-		if(highScore >= score ){
-			printw("Previous high score: ");
-			attron(COLOR_PAIR(3));
-			printw("%d",highScore);
-			attroff(COLOR_PAIR(3));
-			printw("\n");
-			fprintf(fptr, "%d", highScore);
-		}else {
-			attron(COLOR_PAIR(4));
-			attron(A_BLINK);
-			attron(A_UNDERLINE);
-			printw("New high score!");
-			attroff(A_UNDERLINE);
-			attroff(A_BLINK);
-			attroff(COLOR_PAIR(4));
-			fprintf(fptr, "%d", sc);
-		}
+	fscanf(fptr, "%d", &highScore);
+	fclose(fptr);
+	fptr = fopen("highscore.txt","w");
+	if(highScore >= score ){
+		printw("Previous high score: ");
+		attron(COLOR_PAIR(3));
+		printw("%d",highScore);
+		attroff(COLOR_PAIR(3));
+		printw("\n");
+		fprintf(fptr, "%d", highScore);
 	}else {
-		printw("Error reading previous high score file");
+		attron(COLOR_PAIR(4));
+		attron(A_BLINK);
+		attron(A_UNDERLINE);
+		printw("New high score!");
+		attroff(A_UNDERLINE);
+		attroff(A_BLINK);
+		attroff(COLOR_PAIR(4));
+		fprintf(fptr, "%d", sc);
 	}
+	
 	fclose(fptr);
 	return 0;
 }
@@ -372,9 +370,11 @@ int main() {
 	attroff(COLOR_PAIR(4));
 	for(int i = 0; i < sizeof(snake_art)/sizeof(snake_art[0]); i++){
 		if(i < 2){
+			attron(A_BLINK);
 			attron(COLOR_PAIR(1));
 			printw("%s\n",snake_art[i]);
 			attroff(COLOR_PAIR(1));
+			attroff(A_BLINK);
 		}
 		else {
 			if(i == 6){
