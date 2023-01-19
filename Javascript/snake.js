@@ -174,7 +174,7 @@ function update() {
   }
   
   // Check for collision with the walls or with the snake's body
-  if (newHead.x < 0 || newHead.x >= rows || newHead.y < 0 || newHead.y >= cols || checkCollision(newHead.x, newHead.y)) {
+  if (newHead.x < 0 || newHead.x >= rows  || newHead.y < 0 || newHead.y >= cols || checkCollision(newHead.x, newHead.y)) {
     // Game over
     gameOver();
   }
@@ -188,7 +188,6 @@ function draw() {
   // Clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // Draw the snake and food
-  update();
   drawSnake();
   drawFood();
 }
@@ -213,6 +212,7 @@ form.addEventListener('submit', event => {
   rows = boardSize * cellSize;
   cols = boardSize * cellSize; 
   snake[0] = {x: rows/2, y: cols/2}
+  generateFood();
   // Update the snake speed
   clearInterval(gameLoop);
   startGame(snakeSpeed)

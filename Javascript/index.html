@@ -4,7 +4,6 @@
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 canvas, #gameOver {
   margin: 0 auto;
@@ -12,32 +11,29 @@ canvas, #gameOver {
 #score {
   text-align: center;
 }
-#menuForm {
-  width: 200px;
-  margin: 50px auto;
-}
 
 </style>
 <head>
   <title>Javascript snake</title>
 </head>
 <body>
-<form id="menuForm" style="display: block; margin: 0 auto;">
+<form id="menuForm" style="display: inline-block; margin: 0 auto; font-size:30px;">
   <label>Board size:</label>
-  <select id="boardSize">
+  <select id="boardSize" style="font-size:20px">
     <option value="20">20x20</option>
     <option value="30">30x30</option>
     <option value="40">40x40</option>
   </select>
   <br>
   <label>Snake speed:</label>
-  <select id="snakeSpeed">
-    <option value="120">Slow</option>
-    <option value="75">Medium</option>
-    <option value="50">Fast</option>
+  <select id="snakeSpeed" style="font-size:20px">
+    <option value="200">Slow</option>
+    <option value="120">Medium</option>
+    <option value="70">Fast</option>
+    <option value="40">Fasterst</option>
   </select>
   <br>
-  <input id='startButton' type="submit" value="Start">
+  <input id='startButton' type="submit" value="Start" style="font-size:20px; margin: 20 auto;">
 </form>
 <div id="score" style="display: none; font-size:40px;">
 Score: 0</div>
